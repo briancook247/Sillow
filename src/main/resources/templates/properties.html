@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <style>
+      * {
+        font-family: Arial;
+      }
+      h2 {
+        color: blue;
+      }
+      p {
+        font-style: italic;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 th:text="${title}"></h1>
+    <table>
+      <tr>
+        <th>Property Name</th>
+        <th>Location</th>
+        <th>Sq. Feet</th>
+        <th>Description</th>
+        <th>Value</th>
+        <th>Date of Const.</th>
+      </tr>
+      <tr th:each="property : ${properties}">
+        <td th:text="${property.nameOfProperty}"></td>
+        <td th:text="${property.location}"></td>
+        <td th:text="${property.squareFeet}"></td>
+        <td th:text="${property.description}"></td>
+        <td th:text="${property.value}"></td>
+        <td th:text="${property.dateOfConstruction}"></td>
+      </tr>
+    </table>
+  </body>
+</html>
