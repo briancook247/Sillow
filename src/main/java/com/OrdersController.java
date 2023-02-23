@@ -21,7 +21,7 @@ public class OrdersController
     public String showAllProperties(Model model)
     {
         List<PropertyModel> properties = propertyService.getAllProperties();
-        model.addAttribute("Title", "These are all our properties");
+        model.addAttribute("title", "These are all our properties");
         model.addAttribute("properties", properties);
         return "properties.html";
     }
