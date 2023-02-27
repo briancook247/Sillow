@@ -20,7 +20,7 @@ public class LoginController {
 	SecurityServiceInterface securityService;
 
 	@GetMapping("/")
-	public String display(Model model) {
+	public String displayLogin(Model model) {
 		// Display login form
 		model.addAttribute("title", "Login Form");
 		model.addAttribute("loginModel", new LoginModel());
