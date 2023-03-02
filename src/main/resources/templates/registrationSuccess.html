@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+	<div layout:fragment="content">
+		<h1>You have successfully registered!</h1>
+        <br/>
+        <h4>Username:</h4>
+		<p th:text="${loginModel.username}"></p>
+        <br>
+        <h4>Password</h4>
+        <p th:text="${loginModel.password}"></p>
+	</div>
+</html>
