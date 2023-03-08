@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequestMapping("/home")
 public class ApplicationController 
 {
-    @GetMapping("/test")
-    public String printHello()
+    @GetMapping("/")
+    public String showHomePage()
     {
         return "coverPage.html";
     }

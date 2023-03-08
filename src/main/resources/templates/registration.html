@@ -42,7 +42,7 @@
 			.imgcontainer {
 				text-align: center;
 				margin: 24px 0 12px 0;
-				padding: 30px
+				padding: 10px
 			}
 			
 			img.avatar {
@@ -70,7 +70,7 @@
 		<div layout:fragment="content">
 		<form action ="#" th:action="@{success}" th:object="${loginModel}" method="post">
 			<div class="imgcontainer">
-				<img th:src="@{/img/avatar.png}" alt="Avatar" class="avatar"/>
+				<img th:src="@{/img/icon.png}" alt="Avatar" class="avatar"/>
 			</div>
 			
 			<div class="container">
@@ -92,6 +92,9 @@
 				<button type="button" class="cancelbtn">Cancel</button>
 				<span th:text="${err}" class="fieldError"></span>
 			</div>
+			<br/>
+			<br/>
+			<br/>
 		</form>
 	</div>
 	</body>
