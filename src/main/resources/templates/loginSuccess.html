@@ -2,7 +2,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
 	<div layout:fragment="content">
-		<h1>Login results</h1>
-		<p th:text="${loginModel}"></p>
+		<hr/>
+		<h4>Successfully logged in as </h4>
+		<p th:text="${loginModel.username}"></p>
+		<p th:text="${loginModel.password}"></p>
+		<hr/>
 	</div>
 </html>
