@@ -20,9 +20,11 @@ public class OrdersController
     @GetMapping("/")
     public String showAllProperties(Model model)
     {
-        List<PropertyModel> properties = propertyService.getAllProperties();
-        model.addAttribute("title", "These are all our properties");
+        List<PropertyModel> properties = propertyService.getProperties();
+        model.addAttribute("title", "Available Properties");
         model.addAttribute("properties", properties);
         return "properties.html";
     }
+
+
 }
