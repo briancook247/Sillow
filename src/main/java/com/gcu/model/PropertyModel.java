@@ -24,6 +24,11 @@ public class PropertyModel
         this.dateOfConstruction = dateOfConstruction;
     }
 
+    public PropertyModel()
+    {
+        super();
+    }
+
     @Override
     public String toString() {
         return "PropertyModel [nameOfProperty=" + nameOfProperty + ", location=" + location + ", squareFeet="
