@@ -17,11 +17,11 @@ public class PropertyFakeDAO implements PropertyDataAccessInterface
     {   
         properties = new ArrayList<PropertyModel>();
         Date date = new Date();
-       properties.add(new PropertyModel("Big House", "Phoenix", 7000, "bigphoto.jpg", "Really, really big house", 600000, date));
-       properties.add(new PropertyModel("Small House", "Phoenix", 1200, "smallphoto.jpg", "Really, really small house", 80000, date));
-       properties.add(new PropertyModel("Beach House", "California", 1900, "beachphoto.jpg", "Pretty beach house", 400000, date));
-       properties.add(new PropertyModel("Castle", "Phoenix", 20000, "castlephoto.jpg", "Large, old castle", 800000, date));
-       properties.add(new PropertyModel("Modern House", "Phoenix", 2300, "modernphoto.jpg", "Sleek, modern house", 290000, date));
+       properties.add(new PropertyModel("Big House", "Phoenix", 7000, "bigphoto.jpg", "Really, really big house", 600000, "01/02/2023"));
+       properties.add(new PropertyModel("Small House", "Phoenix", 1200, "smallphoto.jpg", "Really, really small house", 80000, "01/02/2023"));
+       properties.add(new PropertyModel("Beach House", "California", 1900, "beachphoto.jpg", "Pretty beach house", 400000, "01/02/2023"));
+       properties.add(new PropertyModel("Castle", "Phoenix", 20000, "castlephoto.jpg", "Large, old castle", 800000, "01/02/2023"));
+       properties.add(new PropertyModel("Modern House", "Phoenix", 2300, "modernphoto.jpg", "Sleek, modern house", 290000, "01/02/2023"));
 
     }
 

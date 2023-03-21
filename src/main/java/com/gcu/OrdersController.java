@@ -38,7 +38,7 @@ public class OrdersController
     public String processNew(PropertyModel property)
     {
         propertyService.addOne(property);
-        return "redirect:/properties";
+        return "redirect:/orders/";
     }
 
 

@@ -11,10 +11,10 @@ public class PropertyModel
     String photoFileName = "";
     String description = "";
     double value = 0;
-    Date dateOfConstruction;
+    String dateOfConstruction;
 
     public PropertyModel(String nameOfProperty, String location, int squareFeet, String photoFileName,
-            String description, double value, Date dateOfConstruction) {
+            String description, double value, String dateOfConstruction) {
         this.nameOfProperty = nameOfProperty;
         this.location = location;
         this.squareFeet = squareFeet;
@@ -72,10 +72,10 @@ public class PropertyModel
     public void setValue(double value) {
         this.value = value;
     }
-    public Date getDateOfConstruction() {
+    public String getDateOfConstruction() {
         return dateOfConstruction;
     }
-    public void setDateOfConstruction(Date dateOfConstruction) {
+    public void setDateOfConstruction(String dateOfConstruction) {
         this.dateOfConstruction = dateOfConstruction;
     }
 
