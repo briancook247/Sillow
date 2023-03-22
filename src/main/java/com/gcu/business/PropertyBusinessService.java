@@ -1,26 +1,37 @@
 package com.gcu.business;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.gcu.model.PropertyModel;
+import com.gcu.data.PropertyDataAccessInterface;
 
 public class PropertyBusinessService implements PropertyBusinessServiceInterface
 {
+    @Autowired
+    PropertyDataAccessInterface propertyDAO;
 
     @Override
-    public void test() {
-        System.out.println("Test method in PropertyBusinessService is working.");
+    public List<PropertyModel> getProperties() {
+       return propertyDAO.getProperties();
     }
 
     @Override
-    public List<PropertyModel> getAllProperties() {
-       List<PropertyModel> properties = new ArrayList<PropertyModel>();
-       Date date = new Date();
-       properties.add(new PropertyModel("Big House", "Phoenix", 7000, "bigphoto.jpg", "Really, really big house", 600000.00, date));
-       properties.add(new PropertyModel("Small House", "Phoenix", 1200, "smallphoto.jpg", "Really, really small house", 80000.00, date));
-       return properties;
+    public int addOne(PropertyModel newProperty) {
+        return propertyDAO.addOne(newProperty);
     }
 
+    @Override
+    public List<PropertyModel> searchProperties(String searchTerm) {
+        return propertyDAO.searchProperties(searchTerm);
+    }
+
+    @Override
+    public boolean deleteOne(String nameOfProperty) {
+        return propertyDAO.deleteOne(nameOfProperty);
+    }
+
+    
+    
 }

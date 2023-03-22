@@ -1,6 +1,5 @@
 package com.gcu.model;
 
-import java.util.Date;
 
 // Class to model a real estate property
 public class PropertyModel 

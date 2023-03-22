@@ -6,6 +6,8 @@ import com.gcu.model.PropertyModel;
 
 public interface PropertyBusinessServiceInterface 
 {
-    public void test();
-    public List<PropertyModel> getAllProperties();
+    public List<PropertyModel> getProperties();
+    public int addOne(PropertyModel newProperty);
+    public List<PropertyModel> searchProperties(String searchTerm);
+    public boolean deleteOne(String nameOfProperty);
 }
