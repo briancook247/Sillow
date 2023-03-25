@@ -55,5 +55,11 @@ public class PropertyFakeDAO implements PropertyDataAccessInterface
         System.out.println("I searched for " + searchTerm + " and found " + foundItems.size() + " items.");
         return foundItems;
     }
+
+    @Override
+    public boolean deleteOne(String nameOfProperty) {
+        properties.removeIf(property -> property.getNameOfProperty() == nameOfProperty);
+        return true;
+    }
     
 }
