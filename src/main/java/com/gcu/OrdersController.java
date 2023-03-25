@@ -42,6 +42,22 @@ public class OrdersController
         return "redirect:/orders/";
     }
 
+    @PostMapping("/search")
+    public String searchProduct(String searchTerm, Model model) 
+    { 
+    List<PropertyModel> properties;
+    // Check for null search term
+    if (searchTerm != null) {
+        properties = propertyService.searchProperties(searchTerm.toLowerCase());
+    } else {
+        // Return all properties
+        properties = propertyService.getProperties();
+    }
+    model.addAttribute("resultProperties", properties);
+    return "searchResults";
+    }
+
+
     @GetMapping("/delete/{nameOfProperty}")
     public String deleteProduct(@PathVariable(value="nameOfProperty")String nameOfProperty, Model model)
     {
@@ -51,5 +67,6 @@ public class OrdersController
         return "redirect:/orders/";
     }
 
+  
 
 }
