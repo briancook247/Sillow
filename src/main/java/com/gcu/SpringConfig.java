@@ -19,7 +19,7 @@ public class SpringConfig
     @Bean(name="securityService")
     public SecurityServiceInterface getSecurityService()
     {
-        return new ValidLogins();
+        return new ValidLogins(dataSource);
     }
 
     @Bean(name="propertyBusinessService")

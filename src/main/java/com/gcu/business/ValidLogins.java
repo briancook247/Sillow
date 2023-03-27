@@ -1,9 +1,27 @@
 package com.gcu.business;
 import com.gcu.model.LoginModel;
+import com.gcu.model.UserMapper;
 
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 // Class to define login values and check validation
 public class ValidLogins implements SecurityServiceInterface
 {
+	@Autowired
+	DataSource dataSource;
+
+	@Autowired
+	JdbcTemplate jdbcTemplate;
+
+	public ValidLogins(DataSource dataSource)
+	{
+		this.dataSource = dataSource;
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	}
     @Override
     public boolean isAuthenticated(LoginModel loginModel)
     {
@@ -32,4 +50,18 @@ public class ValidLogins implements SecurityServiceInterface
 				return false;
 			}
     }
+
+	@Override
+	public int addUser(LoginModel newUser) {
+		return jdbcTemplate.update("insert into USERS (password, username) values (?, ?)",
+		newUser.getPassword(),
+		newUser.getUsername());
+	}
+
+	@Override
+	public List<LoginModel> getUsers() {
+		List<LoginModel> results = jdbcTemplate.query("select * from USERS", new UserMapper());
+        return results;
+	}
+	
 }
