@@ -59,5 +59,26 @@ public class PropertyDataService implements PropertyDataAccessInterface
         new Object[] {"%" + searchTerm + "%"});
     }
 
+    @Override
+    public PropertyModel updateOne(String nameOfProperty, PropertyModel updateProperty) {
+        int result = jdbcTemplate.update("update PROPERTIES set location = ?, squareFeet = ?, photoFileName = ?, description = ?, value = ? where nameOfProperty = ?",
+        updateProperty.getLocation(),
+        updateProperty.getSquareFeet(),
+        updateProperty.getPhotoFileName(),
+        updateProperty.getDescription(),
+        updateProperty.getValue(),
+        nameOfProperty);
+        if(result > 0)
+        {
+            return updateProperty;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    
+
     
 }

@@ -61,5 +61,22 @@ public class PropertyFakeDAO implements PropertyDataAccessInterface
         properties.removeIf(property -> property.getNameOfProperty() == nameOfProperty);
         return true;
     }
+
+    @Override
+    public PropertyModel updateOne(String nameOfProperty, PropertyModel updateProperty) {
+        properties.stream().forEach(property -> {
+            if(property.getNameOfProperty().equals(nameOfProperty))
+            {
+                property.setLocation(updateProperty.getLocation());
+                property.setSquareFeet(updateProperty.getSquareFeet());
+                property.setPhotoFileName(updateProperty.getPhotoFileName());
+                property.setDescription(updateProperty.getDateOfConstruction());
+                property.setValue(updateProperty.getValue());
+                System.out.println("Updated property " + updateProperty);
+            }
+        });
+        return null;
+    }
+    
     
 }

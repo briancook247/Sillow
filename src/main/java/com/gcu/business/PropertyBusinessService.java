@@ -32,6 +32,13 @@ public class PropertyBusinessService implements PropertyBusinessServiceInterface
         return propertyDAO.deleteOne(nameOfProperty);
     }
 
+    @Override
+    public PropertyModel updateOne(String nameOfProperty, PropertyModel updateProperty) {
+       return propertyDAO.updateOne(nameOfProperty, updateProperty);
+    }
+
+    
+
     
     
 }

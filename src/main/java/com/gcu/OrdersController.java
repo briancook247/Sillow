@@ -3,6 +3,7 @@ package com.gcu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.gcu.business.PropertyBusinessServiceInterface;
 import java.util.List;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 import com.gcu.model.PropertyModel;
 
 @Controller
@@ -58,13 +62,25 @@ public class OrdersController
     }
 
 
-    @GetMapping("/delete/{nameOfProperty}")
+    @DeleteMapping("/delete/{nameOfProperty}")
     public String deleteProduct(@PathVariable(value="nameOfProperty")String nameOfProperty, Model model)
     {
         List<PropertyModel> properties = propertyService.getProperties();
-        PropertyModel property = properties.stream().filter(p -> p.getNameOfProperty()==nameOfProperty).findFirst().get();
-        properties.remove(property);
+        for(int i = 0; i < properties.size(); i++)
+        {
+            if(properties.get(i).getNameOfProperty().equals(nameOfProperty))
+            {
+                propertyService.deleteOne(nameOfProperty);
+            }
+        }
         return "redirect:/orders/";
+    }
+
+    @PutMapping("/")
+    public String updateProperty(@RequestBody PropertyModel updateProperty)
+    {
+        propertyService.updateOne(updateProperty.getNameOfProperty(), updateProperty);
+        return "redirect:/";
     }
 
   
