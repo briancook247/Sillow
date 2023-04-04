@@ -37,7 +37,11 @@ public class PropertyBusinessService implements PropertyBusinessServiceInterface
        return propertyDAO.updateOne(nameOfProperty, updateProperty);
     }
 
-    
+    @Override
+    public PropertyModel getPropertyByName(String nameOfProperty) {
+        return propertyDAO.getPropertyByName(nameOfProperty);
+    }
+
 
     
     

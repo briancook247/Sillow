@@ -11,4 +11,5 @@ public interface PropertyBusinessServiceInterface
     public List<PropertyModel> searchProperties(String searchTerm);
     public boolean deleteOne(String nameOfProperty);
     public PropertyModel updateOne(String nameOfProperty, PropertyModel updateProperty);
+    public PropertyModel getPropertyByName(String nameOfProperty);
 }

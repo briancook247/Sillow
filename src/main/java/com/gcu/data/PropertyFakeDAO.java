@@ -78,5 +78,14 @@ public class PropertyFakeDAO implements PropertyDataAccessInterface
         return null;
     }
     
+    @Override
+    public PropertyModel getPropertyByName(String nameOfProperty) {
+        for (PropertyModel property : properties) {
+            if (property.getNameOfProperty().equals(nameOfProperty)) {
+                return property;
+            }
+        }
+        return null;
+    }
     
 }
